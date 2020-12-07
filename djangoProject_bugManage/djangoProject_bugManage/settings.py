@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app01.apps.App01Config',
+    'web.apps.WebConfig',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,7 @@ ROOT_URLCONF = 'djangoProject_bugManage.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates']
+        'DIRS': [BASE_DIR, 'app01/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -115,6 +116,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# ######## sms  ########
+
+# 腾讯云短信应用的 app_id
+TENCENT_SMS_APP_ID = 6666666666
+
+# 腾讯云短信应用的 app_key
+TENCENT_SMS_APP_KEY = "6666666666666666666666"
+
+# 腾讯云短信签名内容
+TENCENT_SMS_SIGN = "Python之路"
+
+
+TENCENT_SMS_TEMPLATE = {
+    'register': 783589,
+    'login': 783668
+}
 try:
     from .local_settings import *
 except ImportError:
